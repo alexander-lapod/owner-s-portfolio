@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+@theme {
+	--font-display: 'Instrument Serif', ui-serif, Georgia, serif;
+	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+	--color-void: #120b07;
+	--color-espresso: #1a0f0a;
+	--color-cocoa: #2c1810;
+	--color-cream: #fefae0;
+	--color-tan: #d9b99b;
+	--color-ember: #e2844c;
+
+	--ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		background-color: var(--color-espresso);
+		color: var(--color-cream);
+		font-family: var(--font-sans);
+		font-synthesis-weight: none;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		overflow-x: hidden;
+	}
+
+	::selection {
+		background-color: var(--color-tan);
+		color: var(--color-espresso);
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-tan);
+		outline-offset: 4px;
+		border-radius: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+	::-webkit-scrollbar-track {
+		background: var(--color-espresso);
+	}
+	::-webkit-scrollbar-thumb {
+		background: color-mix(in srgb, var(--color-tan) 28%, transparent);
+		border-radius: 999px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.001ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001ms !important;
+		}
+	}
+}
+
+/* Film-grain texture: static overlay, no animation, no runtime cost. */
+@utility grain-layer {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	pointer-events: none;
+	opacity: 0.055;
+	mix-blend-mode: overlay;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Scroll cue in the hero: a short bar sliding down a hairline. */
+@keyframes scroll-cue {
+	0%,
+	100% {
+		transform: translateY(-100%);
+	}
+	50% {
+		transform: translateY(280%);
+	}
+}
+
+/* Skills marquee: one compositor-only transform, pauses on hover. */
+@keyframes marquee-x {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}
+
+@utility marquee-track {
+	display: flex;
+	width: max-content;
+	animation: marquee-x 48s linear infinite;
+	will-change: transform;
+}
+
+@utility marquee-pause {
+	&:hover .marquee-track {
+		animation-play-state: paused;
+	}
+}
+
+/* Editorial link: underline that grows from the left. */
+@utility link-quiet {
+	position: relative;
+	color: var(--color-tan);
+	text-decoration: none;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 0% 1px;
+	transition: background-size 320ms var(--ease-out-soft);
+	&:hover,
+	&:focus-visible {
+		background-size: 100% 1px;
+	}
+}
