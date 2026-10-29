@@ -14,3 +14,7 @@ node_modules/
 .svelte-kit/
 build/
 target/
+
+# Wrangler local state
+.wrangler/
+.wrangler-dry/

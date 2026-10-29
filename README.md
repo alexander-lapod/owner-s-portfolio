@@ -21,14 +21,32 @@ ada di [client/README.md](client/README.md).
 
 ## Deploy
 
+Target: Cloudflare Workers Static Assets. [`wrangler.jsonc`](wrangler.jsonc) di
+root menunjuk `./client/build` sebagai direktori aset.
+
+Build lokal lalu deploy manual:
+
 ```sh
-cd client
-pnpm build
-npx wrangler pages deploy build --project-name signature-work
+cd client && pnpm build && cd ..
+npx wrangler deploy
 ```
 
-Atau hubungkan repo ini ke Cloudflare Pages dengan root directory `client`,
-build command `pnpm build`, output directory `build`.
+### Workers Builds (deploy dari repo)
+
+Set di dashboard, dengan **root directory = root repo** (bukan `client`):
+
+| Field | Nilai |
+| --- | --- |
+| Build command | `cd client && pnpm install --frozen-lockfile && pnpm build` |
+| Deploy command | `npx wrangler deploy` |
+
+Kalau root directory diubah ke `client`, pindahkan `wrangler.jsonc` ke dalam
+`client/` dan ubah `assets.directory` menjadi `./build`, serta build command
+menjadi `pnpm install --frozen-lockfile && pnpm build`.
+
+Alternatif Cloudflare Pages: root directory `client`, build command
+`pnpm build`, output directory `build`. Tidak perlu `wrangler.jsonc` untuk jalur
+ini.
 
 ## Lisensi
 
