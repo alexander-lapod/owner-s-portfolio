@@ -1,38 +1,50 @@
+SIGNATURE WORK - PROPRIETARY LICENSE
+All Rights Reserved
+
 Copyright (c) 2026 Alexander F. J. Lapod. All rights reserved.
 
-# Proprietary Notice
+
+1. PROPRIETARY NOTICE
+---------------------
 
 This repository, including all source code, configuration, text, design,
 graphics, and any other files contained in it (collectively, "the Work"), is the
 exclusive property of Alexander F. J. Lapod ("the Owner").
 
-# No License Granted
+
+2. NO LICENSE GRANTED
+---------------------
 
 No license or permission of any kind, express or implied, is granted to any
 person or entity. Without the prior written consent of the Owner, you may not:
 
-1. copy, reproduce, or mirror the Work, in whole or in part;
-2. modify, adapt, translate, or create derivative works based on the Work;
-3. distribute, publish, sublicense, sell, rent, lease, or lend the Work;
-4. deploy, host, or operate the Work as a public website, application, or
-   service;
-5. incorporate the Work, or any substantial part of it, into another product;
-6. remove or alter this notice or any copyright, attribution, or ownership
-   marking.
+  (a) copy, reproduce, or mirror the Work, in whole or in part;
+  (b) modify, adapt, translate, or create derivative works based on the Work;
+  (c) distribute, publish, sublicense, sell, rent, lease, or lend the Work;
+  (d) deploy, host, or operate the Work as a public website, application, or
+      service;
+  (e) incorporate the Work, or any substantial part of it, into another
+      product;
+  (f) remove or alter this notice or any copyright, attribution, or ownership
+      marking.
 
 Viewing the source code in a public repository is permitted for personal
 reference only. Viewing does not grant any right to use the Work.
 
-# Third-Party Components
+
+3. THIRD-PARTY COMPONENTS
+-------------------------
 
 The Work depends on third-party packages and assets that remain under their own
 licenses, including but not limited to SvelteKit, Svelte, Vite, and Tailwind CSS
 (MIT), and the Instrument Serif, Inter, and JetBrains Mono typefaces (SIL Open
 Font License). Those licenses govern those components only and are unaffected by
-this notice. See `client/package.json`, `server/Cargo.toml`, and
-`client/pnpm-lock.yaml` for the dependency inventory.
+this notice. See client/package.json, server/Cargo.toml, and
+client/pnpm-lock.yaml for the dependency inventory.
 
-# No Warranty
+
+4. NO WARRANTY
+--------------
 
 THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
 INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
@@ -41,6 +53,8 @@ FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE WORK OR THE
 USE OF THE WORK.
 
-# Contact
+
+5. CONTACT
+----------
 
 Requests for permission: Alexander F. J. Lapod.
